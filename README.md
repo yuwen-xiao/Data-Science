@@ -13,8 +13,6 @@
 - [实际抓取结果 CSV](assignment01/question01/data/demo_books_3pages/result.csv)
 - [页面预览](assignment01/question01/preview/console.png)
 
-![网络爬虫控制台](assignment01/question01/preview/console.png)
-
 ### Question 02 · 主成分分析（PCA）
 
 完成了一套 18 页 PCA 演示稿，内容包括降维动机、几何直觉、最大方差目标、特征值推导、SVD 与 PCA 的关系、主成分数量选择、完整流程，以及 UCI Wine 的 13 维到 3 维案例。
