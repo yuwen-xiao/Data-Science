@@ -1,0 +1,19 @@
+{
+  "id": "20261117-190956-43ec7244",
+  "status": "completed",
+  "start_url": "https://books.toscrape.com/",
+  "max_pages": 3,
+  "request_interval": 1.0,
+  "fetch_details": 1,
+  "pages_total": 3,
+  "pages_done": 3,
+  "current_page": 0,
+  "records_count": 60,
+  "duplicates_count": 0,
+  "failures_count": 0,
+  "message": "抓取完成：3 页，60 条，重复 0 条",
+  "pause_reason": null,
+  "created_at": "2026-11-17T11:09:56+00:00",
+  "started_at": "2026-11-17T11:09:56+00:00",
+  "finished_at": "2026-11-17T11:14:18+00:00"
+}

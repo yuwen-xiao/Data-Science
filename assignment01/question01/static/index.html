@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Assignment 01 网络爬虫控制台">
+  <title>Book Crawler Console · Assignment 01</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">DATA SCIENCE · ASSIGNMENT 01 · QUESTION 01</p>
+        <h1>网络爬虫控制台</h1>
+        <p class="hero-copy">面向 <strong>books.toscrape.com</strong> 的受限爬虫演示。公开页面、低频率、可暂停、可追溯。</p>
+      </div>
+      <div class="hero-badge" id="healthBadge">
+        <span class="pulse"></span>
+        <span>本地单 worker</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel controls-panel" aria-labelledby="controlsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">01 / INPUT</p>
+            <h2 id="controlsTitle">任务参数</h2>
+          </div>
+          <span class="domain-chip">白名单 · books.toscrape.com</span>
+        </div>
+
+        <form id="crawlForm" class="form-grid">
+          <label class="field field-wide">
+            <span>起始 URL</span>
+            <input id="startUrl" name="start_url" type="url" value="https://books.toscrape.com/" required>
+            <small>只接受该站点的 HTTPS 地址；重定向到白名单外会中止。</small>
+          </label>
+          <label class="field">
+            <span>最大页数</span>
+            <input id="maxPages" name="max_pages" type="number" min="1" max="50" value="3" required>
+            <small>默认 3 页，约 60 本书。</small>
+          </label>
+          <label class="field">
+            <span>请求间隔（秒）</span>
+            <input id="requestInterval" name="request_interval" type="number" min="0" max="10" step="0.1" value="1.0" required>
+            <small>每次 HTTP 请求完成后的等待时间。</small>
+          </label>
+          <label class="field field-wide switch-field">
+            <span class="switch-copy">
+              <strong>抓取详情页</strong>
+              <small>补充 category 和 description；会增加请求数。</small>
+            </span>
+            <input id="fetchDetails" name="fetch_details" type="checkbox" checked>
+            <span class="switch" aria-hidden="true"></span>
+          </label>
+          <div class="form-actions field-wide">
+            <button class="button primary" id="startBtn" type="submit">
+              <span class="button-icon">▶</span> 启动任务
+            </button>
+            <button class="button" id="pauseBtn" type="button" disabled>暂停</button>
+            <button class="button" id="resumeBtn" type="button" disabled>继续</button>
+            <button class="button danger" id="stopBtn" type="button" disabled>停止</button>
+            <p class="form-message" id="formMessage" role="status"></p>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel status-panel" aria-labelledby="statusTitle">
+        <div class="section-heading status-heading">
+          <div>
+            <p class="kicker">02 / LIVE STATUS</p>
+            <h2 id="statusTitle">任务概览</h2>
+          </div>
+          <span class="status-pill idle" id="statusPill">空闲</span>
+        </div>
+
+        <div class="status-message" id="statusMessage">尚未启动任务。设置参数后点击“启动任务”。</div>
+        <div class="progress-track" aria-label="任务进度">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="metrics">
+          <article class="metric">
+            <span class="metric-label">页码</span>
+            <strong id="metricPages">0 / 0</strong>
+            <small id="metricCurrentPage">当前页：—</small>
+          </article>
+          <article class="metric">
+            <span class="metric-label">有效记录</span>
+            <strong id="metricRecords">0</strong>
+            <small>去重后写入 SQLite</small>
+          </article>
+          <article class="metric">
+            <span class="metric-label">重复 / 失败</span>
+            <strong id="metricQuality">0 / 0</strong>
+            <small id="metricQualityNote">重复计入日志，失败单独保存</small>
+          </article>
+          <article class="metric">
+            <span class="metric-label">耗时</span>
+            <strong id="metricElapsed">00:00</strong>
+            <small id="metricJobId">任务 ID：—</small>
+          </article>
+        </div>
+
+        <div class="download-row" id="downloadRow" hidden>
+          <span>导出：</span>
+          <a class="download-link" id="downloadCsv" href="#">CSV</a>
+          <a class="download-link" id="downloadJson" href="#">JSON</a>
+          <a class="download-link" id="downloadLog" href="#">run.log</a>
+        </div>
+      </section>
+
+      <section class="panel data-panel" aria-labelledby="dataTitle">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">03 / OUTPUT</p>
+            <h2 id="dataTitle">抓取结果</h2>
+          </div>
+          <span class="count-chip" id="previewCount">0 条预览</span>
+        </div>
+
+        <div class="tab-list" role="tablist" aria-label="输出视图">
+          <button class="tab-button active" id="tabResults" type="button" role="tab" aria-selected="true" data-tab="results">结果预览</button>
+          <button class="tab-button" id="tabLogs" type="button" role="tab" aria-selected="false" data-tab="logs">实时日志</button>
+          <button class="tab-button" id="tabFailures" type="button" role="tab" aria-selected="false" data-tab="failures">失败记录 <span class="tab-count" id="failureTabCount">0</span></button>
+        </div>
+
+        <div class="tab-panel active" id="panelResults" role="tabpanel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>书名</th>
+                  <th>价格</th>
+                  <th>评分</th>
+                  <th>分类</th>
+                  <th>库存</th>
+                  <th>简介</th>
+                  <th>链接</th>
+                </tr>
+              </thead>
+              <tbody id="resultsBody">
+                <tr class="empty-row"><td colspan="8">暂无数据。启动任务后，结果会实时出现在这里。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panelLogs" role="tabpanel" hidden>
+          <div class="terminal" id="logTerminal" aria-live="polite">
+            <div class="terminal-empty">暂无日志。</div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panelFailures" role="tabpanel" hidden>
+          <div class="failure-list" id="failureList">
+            <p class="empty-copy">暂无失败记录。</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <span>Assignment 01 · Question 01</span>
+      <span>本地演示系统 · 仅抓取公开练习网站</span>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
