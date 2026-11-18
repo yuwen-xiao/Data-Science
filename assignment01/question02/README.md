@@ -64,6 +64,7 @@ python scripts/export_pdf.py
 ## 主要文件
 
 - [PDF 演示稿](dist/assignment01-question02-pca.pdf)
+- [在线打开/下载 PDF（jsDelivr）](https://cdn.jsdelivr.net/gh/yuwen-xiao/Data-Science@main/assignment01/question02/dist/assignment01-question02-pca.pdf)
 - [Web 幻灯片](dist/index.html)
 - [Markdown 源文件](slide.md)
 - [PCA 图](assets/)
@@ -93,3 +94,7 @@ python scripts/export_pdf.py
 - 算法流程页补充 CSDN 博客参考链接
 - 明确 SVD 与 PCA 的对应关系：主成分方向、得分、解释方差和解释方差比例
 - 将主成分数量选择移到完整流程之前，避免先使用后解释
+
+## 关于 GitHub 中的 PDF
+
+如果 GitHub 文件页显示 `Unable to render code block`，这是网页查看器没有渲染该二进制 PDF，不代表文件损坏或上传失败。可以点击页面右上角的下载按钮，或使用上面的 jsDelivr 链接直接打开/下载。

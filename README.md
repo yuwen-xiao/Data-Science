@@ -21,6 +21,7 @@
 
 - [作业说明与复现方式](assignment01/question02/README.md)
 - [PDF 演示稿](assignment01/question02/dist/assignment01-question02-pca.pdf)
+- [直接打开/下载 PDF（jsDelivr）](https://cdn.jsdelivr.net/gh/yuwen-xiao/Data-Science@main/assignment01/question02/dist/assignment01-question02-pca.pdf)
 - [Web 幻灯片](assignment01/question02/dist/index.html)
 - [Markdown 源文件](assignment01/question02/slide.md)
 - [UCI Wine 数据](assignment01/question02/data/wine.data)

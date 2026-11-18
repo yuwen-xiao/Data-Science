@@ -15,5 +15,6 @@
 
 - [实现说明与复现方式](question02/README.md)
 - [PDF 演示稿](question02/dist/assignment01-question02-pca.pdf)
+- [直接打开/下载 PDF（jsDelivr）](https://cdn.jsdelivr.net/gh/yuwen-xiao/Data-Science@main/assignment01/question02/dist/assignment01-question02-pca.pdf)
 - [Web 幻灯片](question02/dist/index.html)
 - [Markdown 源文件](question02/slide.md)
