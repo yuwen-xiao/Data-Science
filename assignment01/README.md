@@ -1,5 +1,21 @@
 # Assignment 01
 
+## 效果预览
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<img src="question01/preview/console.png" alt="问题一：网络爬虫控制台">
+<p><b>Question 01 · 网络爬虫控制台</b><br>参数化抓取、暂停/继续/停止、结果预览和 CSV/JSON/日志导出。</p>
+</td>
+<td width="50%" valign="top">
+<img src="question02/preview/overview.png" alt="问题二：PCA 演示稿页面总览">
+<p><b>Question 02 · PCA 演示稿</b><br>18 页 Web/PDF 幻灯片，包含 SVD 与 PCA 的关系、Wine 三维案例和参考文献。</p>
+</td>
+</tr>
+</table>
+
+
 ## Question 01 · 网络爬虫
 
 - [实现说明、运行步骤与结果](question01/README.md)
