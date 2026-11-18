@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sklearn_pca",
+    "kind": "official_docs",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html",
+    "retrieved_on": "2026-11-17",
+    "status_code": 200,
+    "title": "PCA — scikit-learn 1.9.1 documentation",
+    "description": "Gallery examples: Image denoising using kernel PCA Faces recognition example using eigenfaces and kernel approximation A demo of K-Means clustering on the handwritten digits data Column Transformer..."
+  },
+  {
+    "id": "sklearn_decomposition",
+    "kind": "official_docs",
+    "url": "https://scikit-learn.org/stable/modules/decomposition.html#pca",
+    "retrieved_on": "2026-11-17",
+    "status_code": 200,
+    "title": "2.5. Decomposing signals in components (matrix factorization problems) — scikit-learn 1.9.1 documentation",
+    "description": "Principal component analysis (PCA): Exact PCA and probabilistic interpretation: PCA is used to decompose a multivariate dataset in a set of successive orthogonal components that explain a maximum a..."
+  },
+  {
+    "id": "geeksforgeeks_pca",
+    "kind": "blog",
+    "url": "https://www.geeksforgeeks.org/data-analysis/principal-component-analysis-pca/",
+    "retrieved_on": "2026-11-17",
+    "status_code": 200,
+    "title": "Principal Component Analysis (PCA) - GeeksforGeeks",
+    "description": "Your All-in-One Learning Portal: GeeksforGeeks is a comprehensive educational platform that empowers learners across domains-spanning computer science and programming, school education, upskilling, commerce, software tools, competitive exams, and more."
+  },
+  {
+    "id": "shlens_tutorial",
+    "kind": "paper",
+    "url": "https://arxiv.org/abs/1404.1100",
+    "retrieved_on": "2026-11-17",
+    "status_code": 200,
+    "title": "[1404.1100] A Tutorial on Principal Component Analysis",
+    "description": "Abstract page for arXiv paper 1404.1100: A Tutorial on Principal Component Analysis"
+  }
+]

@@ -1,0 +1,161 @@
+{
+  "dataset": "UCI Wine",
+  "samples": 178,
+  "features": 13,
+  "explained_variance_ratio": [
+    0.361988,
+    0.192075,
+    0.111236,
+    0.07069,
+    0.065633,
+    0.049358,
+    0.042387,
+    0.026807,
+    0.022222,
+    0.0193,
+    0.017368,
+    0.012982,
+    0.007952
+  ],
+  "cumulative_3pc": 0.6653,
+  "reconstruction_error_3pc": 0.3347,
+  "selected_samples": [
+    {
+      "letter": "A",
+      "sample_index": 20,
+      "class": 1,
+      "original_13d": [
+        13.64,
+        3.1,
+        2.56,
+        15.2,
+        116.0,
+        2.7,
+        3.03,
+        0.17,
+        1.66,
+        5.1,
+        0.96,
+        3.36,
+        845.0
+      ],
+      "score_3d": [
+        2.0845,
+        1.0611,
+        -0.1647
+      ]
+    },
+    {
+      "letter": "B",
+      "sample_index": 112,
+      "class": 2,
+      "original_13d": [
+        12.52,
+        2.43,
+        2.17,
+        21.0,
+        88.0,
+        2.55,
+        2.27,
+        0.26,
+        1.22,
+        2.0,
+        0.9,
+        2.78,
+        325.0
+      ],
+      "score_3d": [
+        -0.2787,
+        -1.9306,
+        0.0787
+      ]
+    },
+    {
+      "letter": "C",
+      "sample_index": 149,
+      "class": 3,
+      "original_13d": [
+        13.32,
+        3.24,
+        2.38,
+        21.5,
+        92.0,
+        1.93,
+        0.76,
+        0.45,
+        1.25,
+        8.42,
+        0.55,
+        1.62,
+        650.0
+      ],
+      "score_3d": [
+        -2.8071,
+        1.5705,
+        -0.4725
+      ]
+    }
+  ],
+  "loadings_first_three": {
+    "PC1": {
+      "Alcohol": 0.144329,
+      "Malic acid": -0.245188,
+      "Ash": -0.002051,
+      "Alcalinity of ash": -0.23932,
+      "Magnesium": 0.141992,
+      "Total phenols": 0.394661,
+      "Flavanoids": 0.422934,
+      "Nonflavanoid phenols": -0.298533,
+      "Proanthocyanins": 0.313429,
+      "Color intensity": -0.088617,
+      "Hue": 0.296715,
+      "OD280/OD315": 0.376167,
+      "Proline": 0.286752
+    },
+    "PC2": {
+      "Alcohol": 0.483652,
+      "Malic acid": 0.224931,
+      "Ash": 0.316069,
+      "Alcalinity of ash": -0.010591,
+      "Magnesium": 0.299634,
+      "Total phenols": 0.06504,
+      "Flavanoids": -0.00336,
+      "Nonflavanoid phenols": 0.028779,
+      "Proanthocyanins": 0.039302,
+      "Color intensity": 0.529996,
+      "Hue": -0.279235,
+      "OD280/OD315": -0.164496,
+      "Proline": 0.364903
+    },
+    "PC3": {
+      "Alcohol": -0.207383,
+      "Malic acid": 0.089013,
+      "Ash": 0.626224,
+      "Alcalinity of ash": 0.61208,
+      "Magnesium": 0.130757,
+      "Total phenols": 0.146179,
+      "Flavanoids": 0.150682,
+      "Nonflavanoid phenols": 0.170368,
+      "Proanthocyanins": 0.149454,
+      "Color intensity": -0.137306,
+      "Hue": 0.085222,
+      "OD280/OD315": 0.166005,
+      "Proline": -0.126746
+    }
+  },
+  "feature_names": [
+    "Alcohol",
+    "Malic acid",
+    "Ash",
+    "Alcalinity of ash",
+    "Magnesium",
+    "Total phenols",
+    "Flavanoids",
+    "Nonflavanoid phenols",
+    "Proanthocyanins",
+    "Color intensity",
+    "Hue",
+    "OD280/OD315",
+    "Proline"
+  ]
+}
